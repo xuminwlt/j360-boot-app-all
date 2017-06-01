@@ -3,3 +3,11 @@ datasource:
   url: xxx
 
 
+shiro:
+  loginUrl: /login.html
+
+  # Let Shiro Manage the sessions
+  userNativeSessionManager: true
+
+  # disable URL session rewriting
+  sessionManager.sessionIdUrlRewritingEnabled: false

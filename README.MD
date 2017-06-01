@@ -45,9 +45,12 @@
 5. Log支持
 6. 启动集成
 7. RPC集成
+8. Web集成
+9. Shiro集成
 
 
-jekins配置及步骤
+
+jenkins配置及步骤
 
 
 
