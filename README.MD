@@ -42,11 +42,20 @@
         java -Xss8m -jar  ***.war  --spring.config.location=file:///etc/.myproject.yml
         
 4. JVM监控
+    jps
+    
 5. Log支持
+    slf4j+logback
 6. 启动集成
+    
 7. RPC集成
 8. Web集成
 9. Shiro集成
+10. 分表分库读写分离
+11. ElasticSearch
+12. Mongo
+13. Redis
+14. HttpClient
 
 
 
