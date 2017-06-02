@@ -1,0 +1,8 @@
+mybatis:
+    #mapper-locations: classpath:mapper/*.xml
+    type-aliases-package: me.j360.disboot.model.domain
+    type-handlers-package: me.j360.disboot.dao.typehandler
+    configuration:
+        map-underscore-to-camel-case: true
+        default-fetch-size: 30
+        default-statement-timeout: 30
