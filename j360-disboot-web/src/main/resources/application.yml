@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: @spring.profiles.active@
+
+dubbo:
+  application:
+    id: ${spring.application.name}
+    logger: slf4j
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 12345

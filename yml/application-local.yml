@@ -1,13 +1,16 @@
-profile: local
-datasource:
-  url: xxx
-
-
-shiro:
-  loginUrl: /login.html
-
-  # Let Shiro Manage the sessions
-  userNativeSessionManager: true
-
-  # disable URL session rewriting
-  sessionManager.sessionIdUrlRewritingEnabled: false
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: paomiantv
+    password: Paomiantv1&
+    hikari:
+      auto-commit: true
+      connection-test-query: SELECT 1
+      connection-timeout: 3000
+      pool-name: DatebookHikariCP
+      minimum-idle: 5
+      maximum-pool-size: 15
+      max-lifetime: 1800000
+      idle-timeout: 600000

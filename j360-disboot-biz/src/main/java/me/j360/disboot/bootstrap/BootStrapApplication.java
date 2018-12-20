@@ -1,6 +1,7 @@
 package me.j360.disboot.bootstrap;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Package: me.j360.disboot.bootstrap
@@ -9,11 +10,11 @@ import org.springframework.boot.SpringApplication;
  * 说明：
  */
 
-
+@SpringBootApplication
 public class BootstrapApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(BootstrapConfiguration.class, args);
+    public static void main(String[] args) throws InterruptedException {
+        SpringApplication.run(BootstrapApplication.class, args);
     }
 
 }

@@ -1,6 +1,6 @@
 package me.j360.disboot.repository;
 
-import me.j360.disboot.dao.mapper.UserMapper;
+import me.j360.disboot.mapper.UserMapper;
 import me.j360.disboot.model.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
