@@ -17,10 +17,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan("me.j360.disboot.mapper")
 @EnableTransactionManagement
 @SpringBootApplication
-public class BootstrapApplication1 {
+public class BootstrapApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BootstrapApplication1.class, args);
+        SpringApplication.run(BootstrapApplication.class, args);
     }
 
 }
