@@ -1,12 +1,23 @@
 spring:
+  application:
+    name: disboot-web
   profiles:
     active: @spring.profiles.active@
 
 dubbo:
   application:
-    id: ${spring.application.name}
+    id: disboot-web
+    name: disboot-web
     logger: slf4j
+    qos:
+      port: 26002
+      enable: true
   protocol:
     id: dubbo
     name: dubbo
-    port: 12345
+    port: 20880
+  ## RegistryConfig Bean
+  registry:
+    id: zk
+    address: zookeeper://127.0.0.1:2181
+    client: curator

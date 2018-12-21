@@ -14,10 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 
 @Service(
-        version = "1.0.0",
-        application = "${dubbo.application.id}",
-        protocol = "${dubbo.protocol.id}",
-        registry = "${dubbo.registry.id}"
+        interfaceClass = UserService.class
 )
 public class UserServiceImpl implements UserService {
 

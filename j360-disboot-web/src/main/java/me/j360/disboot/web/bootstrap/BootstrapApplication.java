@@ -10,7 +10,6 @@ import org.springframework.context.annotation.ComponentScan;
  * Date: 2017/6/1 下午10:54
  * 说明：
  */
-
 @SpringBootApplication
 @ComponentScan("me.j360.disboot.web")
 public class BootstrapApplication {

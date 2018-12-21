@@ -4,7 +4,6 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * Package: me.j360.disboot.bootstrap
@@ -13,9 +12,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * 说明：
  */
 
-@ComponentScan({"me.j360.disboot"})
+@ComponentScan("me.j360.disboot")
 @MapperScan("me.j360.disboot.mapper")
-@EnableTransactionManagement
 @SpringBootApplication
 public class BootstrapApplication {
 

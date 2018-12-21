@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: disboot-biz
   main:
     web-application-type: NONE
   profiles:
@@ -21,19 +23,20 @@ spring:
 
 mybatis:
   typeAliasesPackage: me.j360.disboot.mapper
-  mapper-locations: **.mapper
+  mapper-locations: classpath*:me/j360/disboot/mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
-
 
 # Dubbo Config properties
 ## ApplicationConfig Bean
 dubbo:
   scan:
-    base-packages: me.j360.disboot.service
+    basePackages: me.j360.disboot.service
   application:
+    id: disboot-biz
+    name: disboot-biz
     qos:
-      port: 0
+      port: 26001
       enable: true
   ## Enable multiple config bindings
   config:
@@ -42,12 +45,10 @@ dubbo:
   protocols:
     dubbo:
       name: dubbo
-      port: 12345
+      port: 20880
       status: server
-    rest:
-      name: rest
-      port: 8888
   ## RegistryConfig Bean
   registry:
-    id: my-registry
-    address: N/A
+    id: zk
+    address: zookeeper://127.0.0.1:2181
+    client: curator
