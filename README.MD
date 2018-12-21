@@ -1,14 +1,22 @@
-使用spring-boot脚手架重建线上工程
+# 使用spring-boot脚手架重写分布式业务
 
-验证功能点:
+
+[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![Build Status](https://travis-ci.org/xuminwlt/j360-dubbo-app-all.svg?branch=master)](https://travis-ci.org/xuminwlt/j360-dubbo-app-all)
+
+
+## 验证功能点:
+
+1. 更新至最新版本依赖
+
+----------------------------------
 
 1. CI配套
     
     - 开发
     - 单元测试
-    - 本地
-    - 提测
-    - 
+    - 功能测试
+    - 集成测试
     
 2. JVM配置
     
@@ -55,8 +63,6 @@
 11. ElasticSearch
 12. Mongo
 13. Redis
-14. HttpClient
-
 
 
 jenkins配置及步骤

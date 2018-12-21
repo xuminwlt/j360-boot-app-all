@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>j360-disboot-biz</artifactId>
+    <artifactId>j360-disboot-biz-sjdbc</artifactId>
+
 
     <dependencies>
         <dependency>
@@ -35,6 +36,7 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
+
         <!--dubbo-->
         <dependency>
             <groupId>com.alibaba.boot</groupId>
@@ -45,19 +47,16 @@
             <groupId>com.alibaba.spring</groupId>
             <artifactId>spring-context-support</artifactId>
         </dependency>
+
+        <!--sjdbc-->
+        <dependency>
+            <groupId>io.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-orchestration-spring-boot-starter</artifactId>
+        </dependency>
+
     </dependencies>
-
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 </project>

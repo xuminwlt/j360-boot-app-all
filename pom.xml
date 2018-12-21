@@ -13,8 +13,15 @@
         <module>j360-disboot-web</module>
         <module>j360-disboot-client</module>
         <module>j360-disboot-base</module>
+        <module>j360-disboot-biz-sjdbc</module>
     </modules>
     <packaging>pom</packaging>
+
+    <scm>
+        <connection>scm:git:https://github.com/xuminwlt/j360-disboot-all.git</connection>
+        <url>https://github.com/xuminwlt/j360-disboot-all</url>
+        <developerConnection>scm:git:https://github.com/xuminwlt/j360-disboot-all.git</developerConnection>
+    </scm>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -87,6 +94,19 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>8.0.13</version>
             </dependency>
+
+            <!--sjdbc-->
+            <dependency>
+                <groupId>io.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-orchestration-spring-boot-starter</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+
 
             <!--servlet-->
             <dependency>
@@ -184,6 +204,13 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
         </plugins>
