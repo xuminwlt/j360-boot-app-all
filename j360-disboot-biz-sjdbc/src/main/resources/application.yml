@@ -29,7 +29,7 @@ mybatis:
 
 # Dubbo Config properties
 ## ApplicationConfig Bean
-## Notice: basePackages not base-Packages is a bug
+## Notice: basePackages not base-Packages, it is a bug
 dubbo:
   scan:
     basePackages: me.j360.disboot.biz.service
@@ -53,8 +53,7 @@ dubbo:
     address: zookeeper://127.0.0.1:2181
     client: curator
 
-## sharding-sphare
-
+## sharding-sphare config name: jdbcUrl not url,it not is a bug, but HikariDataSource need
 sharding:
   jdbc:
     datasource:
