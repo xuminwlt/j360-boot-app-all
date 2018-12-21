@@ -46,6 +46,15 @@
                 <artifactId>j360-disboot-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <!--boot-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>2.1.1.RELEASE</version>
+                <scope>test</scope>
+            </dependency>
+
             <!--spring-->
             <dependency>
                 <groupId>org.apache.shiro</groupId>
@@ -120,12 +129,12 @@
             <dependency>
                 <groupId>io.shardingsphere</groupId>
                 <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
-                <version>3.0.0</version>
+                <version>3.1.0.M1</version>
             </dependency>
             <dependency>
                 <groupId>io.shardingsphere</groupId>
                 <artifactId>sharding-jdbc-orchestration-spring-boot-starter</artifactId>
-                <version>3.0.0</version>
+                <version>3.1.0.M1</version>
             </dependency>
 
             <!--logback-->

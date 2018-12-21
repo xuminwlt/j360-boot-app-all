@@ -56,13 +56,22 @@
     slf4j+logback
 6. 启动集成
     
+    多环境、多配置支持
+    
 7. RPC集成
+
+    dubbo2.6 + boot2
+    
 8. Web集成
 9. Shiro集成
+    
+    shiro + jwt + boot2
+    参考: https://github.com/xuminwlt/j360-shiro
+    module: j360-shiro-boot
+    
 10. 分表分库读写分离
-11. ElasticSearch
-12. Mongo
-13. Redis
+
+    sharding-sphare v3.0+ boot2
 
 
 jenkins配置及步骤
