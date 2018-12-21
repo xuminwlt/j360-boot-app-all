@@ -9,9 +9,8 @@ dubbo:
     id: disboot-web
     name: disboot-web
     logger: slf4j
-    qos:
-      port: 26002
-      enable: true
+    qos-enable: true
+    qos-port: 22223
   protocol:
     id: dubbo
     name: dubbo

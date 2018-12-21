@@ -29,18 +29,18 @@ mybatis:
 
 # Dubbo Config properties
 ## ApplicationConfig Bean
+## Notice: basePackages not base-Packages is a bug
 dubbo:
   scan:
     basePackages: me.j360.disboot.service
   application:
     id: disboot-biz
     name: disboot-biz
-    qos:
-      port: 26001
-      enable: true
+    qos-enable: true
+    qos-port: 22222
   ## Enable multiple config bindings
   config:
-    multiple: true
+    multiple: false
   ## ProtocolConfig Bean
   protocols:
     dubbo:
