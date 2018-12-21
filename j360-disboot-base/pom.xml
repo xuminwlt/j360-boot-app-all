@@ -11,5 +11,10 @@
 
     <artifactId>j360-disboot-base</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+    </dependencies>
 </project>

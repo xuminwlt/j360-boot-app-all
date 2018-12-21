@@ -14,9 +14,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>me.j360.dubbo</groupId>
-            <artifactId>j360-dubbo-base</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>me.j360.disboot</groupId>
+            <artifactId>j360-disboot-base</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

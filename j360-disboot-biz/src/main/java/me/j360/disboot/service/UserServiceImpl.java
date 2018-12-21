@@ -1,9 +1,9 @@
 package me.j360.disboot.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import me.j360.disboot.base.domain.result.DefaultResult;
 import me.j360.disboot.manager.UserManager;
 import me.j360.disboot.model.domain.User;
-import me.j360.dubbo.base.model.result.DefaultResult;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

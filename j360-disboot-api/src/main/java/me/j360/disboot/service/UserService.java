@@ -1,7 +1,7 @@
 package me.j360.disboot.service;
 
+import me.j360.disboot.base.domain.result.DefaultResult;
 import me.j360.disboot.model.domain.User;
-import me.j360.dubbo.base.model.result.DefaultResult;
 
 /**
  * Package: me.j360.disboot.service
@@ -10,9 +10,5 @@ import me.j360.dubbo.base.model.result.DefaultResult;
  * 说明：
  */
 public interface UserService {
-
-
     DefaultResult<User> getUserById(Long uid);
-
-
 }
