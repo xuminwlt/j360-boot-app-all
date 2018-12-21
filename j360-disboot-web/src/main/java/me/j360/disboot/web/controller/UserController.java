@@ -25,7 +25,11 @@ public class UserController {
     @RequestMapping("/sayHello")
     public String sayHello() {
         DefaultResult<User> result = userService.getUserById(1L);
-        return result.getData().toString();
+        if (result.isSuccess()) {
+            User user = result.getData();
+            return user.getName();
+        }
+        return "null";
     }
 
 }
