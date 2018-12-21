@@ -13,10 +13,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * 说明：
  */
 
-@ComponentScan({"me.j360.disboot"})
-@MapperScan("me.j360.disboot.mapper")
-@EnableTransactionManagement
-@EnableAutoConfiguration
 @Configuration
 public class BootstrapConfiguration {
 
