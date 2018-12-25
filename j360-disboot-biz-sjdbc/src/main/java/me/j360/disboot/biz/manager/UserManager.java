@@ -1,5 +1,7 @@
 package me.j360.disboot.biz.manager;
 
+import kamon.Kamon;
+import kamon.metric.StartedTimer;
 import me.j360.disboot.biz.repository.UserRepository;
 import me.j360.disboot.model.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,10 @@ public class UserManager {
     private TransactionTemplate transactionTemplate;
 
     public User getUserById(Long uid) {
-        return userRepository.getUserById(uid);
+        //Kamon sample
+        StartedTimer timer = Kamon.timer("getUserById").start();
+        User user = userRepository.getUserById(uid);
+        timer.stop();
+        return user;
     }
 }

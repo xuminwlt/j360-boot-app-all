@@ -1,5 +1,7 @@
 package me.j360.disboot.biz.bootstrap;
 
+import kamon.Kamon;
+import kamon.prometheus.PrometheusReporter;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,6 +20,7 @@ import org.springframework.context.annotation.ComponentScan;
 public class BootstrapApplication {
 
     public static void main(String[] args) {
+        Kamon.addReporter(new PrometheusReporter());
         SpringApplication.run(BootstrapApplication.class, args);
     }
 
