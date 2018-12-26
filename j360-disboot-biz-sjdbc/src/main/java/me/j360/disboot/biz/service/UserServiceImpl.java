@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * 说明：
  */
 
+//@EnableKamon
 @Service(
         interfaceClass = UserService.class
 )
@@ -22,7 +23,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserManager userManager;
 
-
+    //@Trace("getUserById")
     @Override
     public DefaultResult<User> getUserById(Long uid) {
         return DefaultResult.success(userManager.getUserById(uid));

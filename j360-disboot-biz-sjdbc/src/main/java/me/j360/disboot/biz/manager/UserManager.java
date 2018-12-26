@@ -4,6 +4,7 @@ import kamon.Kamon;
 import kamon.metric.StartedTimer;
 import me.j360.disboot.biz.repository.UserRepository;
 import me.j360.disboot.model.domain.User;
+import me.j360.disboot.model.domain.UserAccountLog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -29,5 +30,16 @@ public class UserManager {
         User user = userRepository.getUserById(uid);
         timer.stop();
         return user;
+    }
+
+
+    public User insert(User user) {
+        userRepository.insert(user);
+        return user;
+    }
+
+    public UserAccountLog insertAccount(UserAccountLog userAccountLog) {
+        userRepository.insertAccount(userAccountLog);
+        return userAccountLog;
     }
 }

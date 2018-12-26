@@ -155,7 +155,16 @@
                 <artifactId>kamon-prometheus_2.12</artifactId>
                 <version>1.1.1</version>
             </dependency>
-
+            <dependency>
+                <groupId>io.kamon</groupId>
+                <artifactId>kamon-annotation_2.12</artifactId>
+                <version>0.6.7</version>
+            </dependency>
+            <dependency>
+                <groupId>io.kamon</groupId>
+                <artifactId>kamon-spring_2.12</artifactId>
+                <version>1.0.0</version>
+            </dependency>
             <!--servlet-->
             <dependency>
                 <groupId>javax.servlet</groupId>

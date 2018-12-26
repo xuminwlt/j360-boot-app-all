@@ -5,25 +5,25 @@ spring:
     web-application-type: NONE
   profiles:
     active: @spring.profiles.active@
-  datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: paomiantv
-    password: Paomiantv1&
-    hikari:
-      auto-commit: true
-      connection-test-query: SELECT 1
-      connection-timeout: 3000
-      pool-name: DatebookHikariCP
-      minimum-idle: 5
-      maximum-pool-size: 15
-      max-lifetime: 1800000
-      idle-timeout: 600000
+#  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+#    url: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: paomiantv
+#    password: Paomiantv1&
+#    hikari:
+#      auto-commit: true
+#      connection-test-query: SELECT 1
+#      connection-timeout: 3000
+#      pool-name: DatebookHikariCP
+#      minimum-idle: 5
+#      maximum-pool-size: 15
+#      max-lifetime: 1800000
+#      idle-timeout: 600000
 
 mybatis:
   typeAliasesPackage: me.j360.disboot.mapper
-  mapper-locations: classpath*:me/j360/disboot/mapper/*.xml
+  mapper-locations: classpath:/me/j360/disboot/mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
 
@@ -54,34 +54,35 @@ dubbo:
     client: curator
 
 ## sharding-sphare config name: jdbcUrl not url,it not is a bug, but HikariDataSource need
-sharding:
-  jdbc:
-    datasource:
-      names: ds-master,ds-slave-0,ds-slave-1
-      ds-master:
-        type: com.zaxxer.hikari.HikariDataSource
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbcUrl: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
-        username: paomiantv
-        password: Paomiantv1&
-      ds-slave-0:
-        type: com.zaxxer.hikari.HikariDataSource
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbcUrl: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
-        username: paomiantv
-        password: Paomiantv1&
-      ds-slave-1:
-        type: com.zaxxer.hikari.HikariDataSource
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbcUrl: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
-        username: paomiantv
-        password: Paomiantv1&
-    config:
-      masterslave:
-        load-balance-algorithm-type: round_robin
-        name: ds-ms
-        master-data-source-name: ds-master
-        slave-data-source-names: ds-slave-0,ds-slave-1
-      props:
-        sql:
-          show: true
+## MASTER-SLAVE ONLY
+#sharding:
+#  jdbc:
+#    datasource:
+#      names: ds-master,ds-slave-0,ds-slave-1
+#      ds-master:
+#        type: com.zaxxer.hikari.HikariDataSource
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#        jdbcUrl: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+#        username: paomiantv
+#        password: Paomiantv1&
+#      ds-slave-0:
+#        type: com.zaxxer.hikari.HikariDataSource
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#        jdbcUrl: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+#        username: paomiantv
+#        password: Paomiantv1&
+#      ds-slave-1:
+#        type: com.zaxxer.hikari.HikariDataSource
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#        jdbcUrl: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+#        username: paomiantv
+#        password: Paomiantv1&
+#    config:
+#      masterslave:
+#        load-balance-algorithm-type: round_robin
+#        name: ds-ms
+#        master-data-source-name: ds-master
+#        slave-data-source-names: ds-slave-0,ds-slave-1
+#      props:
+#        sql:
+#          show: true

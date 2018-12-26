@@ -1,0 +1,79 @@
+
+## sharding-sphare config name: jdbcUrl not url,it not is a bug, but HikariDataSource need
+## 6 dbs, 2 masters, 4slaves -> 2groups
+## 1groups =  1 master:2 slaves
+sharding:
+  jdbc:
+    datasource:
+      names: ds-master-0,ds-master-1,ds-master-0-slave-0,ds-master-0-slave-1,ds-master-1-slave-0,ds-master-1-slave-1
+      ds-master-0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+        username: paomiantv
+        password: Paomiantv1&
+      ds-master-1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+        username: paomiantv
+        password: Paomiantv1&
+      ds-master-0-slave-0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+        username: paomiantv
+        password: Paomiantv1&
+      ds-master-0-slave-1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+        username: paomiantv
+        password: Paomiantv1&
+      ds-master-1-slave-0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+        username: paomiantv
+        password: Paomiantv1&
+      ds-master-1-slave-1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbcUrl: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+        username: paomiantv
+        password: Paomiantv1&
+    config:
+      sharding:
+        #broadcast-tables: area
+        #default-data-source-name: ds-0 ## cannot set this propertie
+        default-database-strategy:
+          #same user same db, sharding by uid
+          inline:
+            algorithm-expression: ds-$->{uid % 2}
+            sharding-column: uid
+        tables:
+          #same db diff tables, sharding by uid
+          t_user:
+            actual-data-nodes: ds-$->{0..1}.t_user_$->{0..1}
+            key-generator-column-name: uid
+            table-strategy:
+              inline:
+                sharding-column: uid
+                algorithm-expression: t_user_$->{uid % 2}
+          t_user_account_log:
+            actual-data-nodes: ds-$->{0..1}.t_user_account_log_$->{0..1}
+            key-generator-column-name: log_id
+            table-strategy:
+              inline:
+                sharding-column: uid
+                algorithm-expression: t_user_account_log_$->{uid % 2}
+        master-slave-rules:
+          ds-0:
+            master-data-source-name: ds-master-0
+            slave-data-source-names: ds-master-0-slave-0, ds-master-0-slave-1
+          ds-1:
+            master-data-source-name: ds-master-1
+            slave-data-source-names: ds-master-1-slave-0, ds-master-1-slave-1
+      props:
+        sql:
+          show: true

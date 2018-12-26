@@ -10,8 +10,8 @@ import me.j360.disboot.base.domain.model.BaseDO;
  * 说明：
  */
 @Data
-public class User extends BaseDO {
+public class UserAccountLog extends BaseDO {
 
+    private Long logId;
     private Long uid;
-    private String name;
 }
