@@ -3,6 +3,8 @@ spring:
     name: disboot-web
   profiles:
     active: @spring.profiles.active@
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/static/
 
 dubbo:
   application:
@@ -20,3 +22,11 @@ dubbo:
     id: zk
     address: zookeeper://127.0.0.1:2181
     client: curator
+
+
+server:
+  servlet:
+    context-path: /
+  port: 8080
+  tomcat:
+    max-connections: 10000

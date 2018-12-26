@@ -63,6 +63,8 @@
     dubbo2.6 + boot2
     
 8. Web集成
+    
+    
 9. Shiro集成
     
     shiro + jwt + boot2
@@ -100,3 +102,14 @@ b. tracing data reported to  prometheus
 ## sharding-sphare
 
 -Dspring.config.location=file:.././yml/application-local.yml,classpath:application.yml,classpath:application-sharding.yml
+
+
+## java shell
+
+reset vm args in script/bin/env
+
+```
+SERVER_OPTS_MEMORY="-Xms64M -Xmx1G"
+SERVER_OPTS_VM="-server -XX:NewRatio=3 -XX:SurvivorRatio=4 -XX:TargetSurvivorRatio=90 -XX:MaxTenuringThreshold=6 -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:ConcGCThreads=4 -XX:ParallelGCThreads=4 -XX:MetaspaceSize=256M -XX:MaxMetaspaceSize=256M -XX:ReservedCodeCacheSize=240M  -XX:+ExplicitGCInvokesConcurrent -XX:PretenureSizeThreshold=64m -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=75 -XX:CMSMaxAbortablePrecleanTime=6000 -XX:+CMSParallelRemarkEnabled -XX:+ParallelRefProcEnabled -XX:+UseCMSCompactAtFullCollection -XX:CMSFullGCsBeforeCompaction=10    -verbose:gc -Xloggc:gc_%p.log -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintHeapAtGC -XX:+PrintGCTimeStamps -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationStoppedTime -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=100M -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=.   -XX:-OmitStackTraceInFastThrow -XX:-UseBiasedLocking -XX:AutoBoxCacheMax=20000 -DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector"
+SERVER_OPTS="$SERVER_OPTS_MEMORY $SERVER_OPTS_VM -Dspring.config.location=file:.././yml/application-local.yml,classpath:application.yml"
+```

@@ -39,6 +39,24 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
+
+        <!--kamon-->
+        <dependency>
+            <groupId>io.kamon</groupId>
+            <artifactId>kamon-core_2.12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.kamon</groupId>
+            <artifactId>kamon-prometheus_2.12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.kamon</groupId>
+            <artifactId>kamon-annotation_2.12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.kamon</groupId>
+            <artifactId>kamon-spring_2.12</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

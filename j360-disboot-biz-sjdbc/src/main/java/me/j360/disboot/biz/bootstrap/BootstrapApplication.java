@@ -1,11 +1,14 @@
 package me.j360.disboot.biz.bootstrap;
 
 import kamon.Kamon;
+import kamon.annotation.EnableKamon;
 import kamon.prometheus.PrometheusReporter;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+
+import javax.annotation.PreDestroy;
 
 /**
  * Package: me.j360.disboot.bootstrap
@@ -14,6 +17,7 @@ import org.springframework.context.annotation.ComponentScan;
  * 说明：
  */
 
+@EnableKamon
 @ComponentScan("me.j360.disboot.biz")
 @MapperScan("me.j360.disboot.biz.mapper")
 @SpringBootApplication
@@ -24,6 +28,11 @@ public class BootstrapApplication {
         //重启日志 TODO: time/user/
 
         SpringApplication.run(BootstrapApplication.class, args);
+    }
+
+    @PreDestroy
+    void shutdown() {
+
     }
 
 }

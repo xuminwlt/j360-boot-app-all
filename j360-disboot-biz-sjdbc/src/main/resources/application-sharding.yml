@@ -44,7 +44,7 @@ sharding:
         password: Paomiantv1&
     config:
       sharding:
-        #broadcast-tables: area
+        broadcast-tables: t_dict
         #default-data-source-name: ds-0 ## cannot set this propertie
         default-database-strategy:
           #same user same db, sharding by uid

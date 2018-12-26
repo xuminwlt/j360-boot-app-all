@@ -1,6 +1,8 @@
 package me.j360.disboot.web.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import kamon.annotation.EnableKamon;
+import kamon.annotation.Trace;
 import me.j360.disboot.base.domain.result.DefaultResult;
 import me.j360.disboot.model.domain.User;
 import me.j360.disboot.service.UserService;
@@ -14,13 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
  * 说明：
  */
 
-
+@EnableKamon
 @RestController
 public class UserController {
 
     @Reference(interfaceClass = UserService.class)
     private UserService userService;
 
+    @Trace("sayHello")
     @ResponseBody
     @RequestMapping("/sayHello")
     public String sayHello() {

@@ -1,6 +1,8 @@
 package me.j360.disboot.biz.service;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import kamon.annotation.EnableKamon;
+import kamon.annotation.Trace;
 import me.j360.disboot.base.domain.result.DefaultResult;
 import me.j360.disboot.biz.manager.UserManager;
 import me.j360.disboot.model.domain.User;
@@ -13,8 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Date: 2017/6/1 下午4:53
  * 说明：
  */
-
-//@EnableKamon
+@EnableKamon
 @Service(
         interfaceClass = UserService.class
 )
@@ -23,7 +24,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserManager userManager;
 
-    //@Trace("getUserById")
+    @Trace("getUserById")
     @Override
     public DefaultResult<User> getUserById(Long uid) {
         return DefaultResult.success(userManager.getUserById(uid));
