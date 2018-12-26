@@ -1,0 +1,1 @@
+-Dspring.config.location=file:.././yml/application-local.yml,classpath:application.yml
