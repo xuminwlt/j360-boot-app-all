@@ -2,9 +2,12 @@ package me.j360.disboot.web.bootstrap;
 
 import kamon.Kamon;
 import kamon.prometheus.PrometheusReporter;
+import kamon.system.SystemMetrics;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+
+import javax.annotation.PreDestroy;
 
 /**
  * Package: me.j360.disboot.web.bootstrap
@@ -17,8 +20,14 @@ import org.springframework.context.annotation.ComponentScan;
 public class BootstrapApplication {
 
     public static void main(String[] args) {
+        SystemMetrics.startCollecting();
         Kamon.addReporter(new PrometheusReporter());
         SpringApplication.run(BootstrapApplication.class, args);
+    }
+
+    @PreDestroy
+    void shutdown() {
+        SystemMetrics.stopCollecting();
     }
 
 }
