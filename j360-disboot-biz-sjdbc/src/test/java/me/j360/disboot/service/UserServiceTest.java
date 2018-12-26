@@ -56,4 +56,6 @@ public class UserServiceTest {
         accountLog.setUid(2L);
         userManager.insertAccount(accountLog);
     }
+
+
 }

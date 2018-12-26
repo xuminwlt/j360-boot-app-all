@@ -96,3 +96,7 @@ java -javaagent:/path/to/aspectj-weaver.jar -Dkamon.modules.kamon-annotation.aut
 
 b. tracing data reported to  prometheus
 
+
+## sharding-sphare
+
+-Dspring.config.location=file:.././yml/application-local.yml,classpath:application.yml,classpath:application-sharding.yml
