@@ -76,6 +76,7 @@
             <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
         </dependency>
 
+        <!--kamon-->
         <dependency>
             <groupId>io.kamon</groupId>
             <artifactId>kamon-core_2.12</artifactId>
@@ -88,9 +89,23 @@
             <groupId>io.kamon</groupId>
             <artifactId>kamon-annotation_2.12</artifactId>
         </dependency>
+
+        <!--sentinel-->
         <dependency>
-            <groupId>io.kamon</groupId>
-            <artifactId>kamon-spring_2.12</artifactId>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-annotation-aspectj</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-dubbo-adapter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-transport-simple-http</artifactId>
         </dependency>
     </dependencies>
 

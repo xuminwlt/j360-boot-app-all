@@ -73,6 +73,9 @@
 12. 分布式事务
     Pack(Saga)
 
+13. 限流
+    Sentinel
+    
 ## Trace Data
 
 Kamon
@@ -105,6 +108,14 @@ grafana + prometheus
 ```
 -Dspring.config.location=file:.././yml/application-local.yml,classpath:application.yml,classpath:application-sharding.yml
 
+```
+
+## Sentinel
+
+```
+Shell
+
+-Djava.net.preferIPv4Stack=true -Dcsp.sentinel.api.port=8731 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=dubbo-web-demo
 ```
 ## java shell
 

@@ -1,8 +1,7 @@
 package me.j360.disboot.biz.service;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.dubbo.config.annotation.Service;
-import kamon.annotation.EnableKamon;
-import kamon.annotation.Trace;
 import me.j360.disboot.base.domain.result.DefaultResult;
 import me.j360.disboot.biz.manager.UserManager;
 import me.j360.disboot.model.domain.User;
@@ -15,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Date: 2017/6/1 下午4:53
  * 说明：
  */
-@EnableKamon
+
 @Service(
         interfaceClass = UserService.class
 )
@@ -24,9 +23,14 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserManager userManager;
 
-    @Trace("getUserById")
+    @SentinelResource(value = "getUserById", blockHandler = "exceptionHandler", fallback = "helloFallback")
     @Override
     public DefaultResult<User> getUserById(Long uid) {
         return DefaultResult.success(userManager.getUserById(uid));
+    }
+
+    // Fallback 函数，函数签名与原函数一致.
+    public DefaultResult<User> getUserByIdFallback(Long uid) {
+        return DefaultResult.success();
     }
 }

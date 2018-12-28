@@ -13,6 +13,8 @@ dubbo:
     logger: slf4j
     qos-enable: true
     qos-port: 22223
+  consumer:
+    filter: -sentinel.dubbo.consumer.filter
   protocol:
     id: dubbo
     name: dubbo
@@ -27,6 +29,6 @@ dubbo:
 server:
   servlet:
     context-path: /
-  port: 8080
+  port: 8081
   tomcat:
     max-connections: 10000

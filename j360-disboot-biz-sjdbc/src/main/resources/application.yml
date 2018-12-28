@@ -33,6 +33,8 @@ mybatis:
 dubbo:
   scan:
     basePackages: me.j360.disboot.biz.service
+  consumer:
+    filter: -sentinel.dubbo.consumer.filter
   application:
     id: disboot-biz
     name: disboot-biz
