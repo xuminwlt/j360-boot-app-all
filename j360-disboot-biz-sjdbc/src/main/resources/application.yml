@@ -20,6 +20,10 @@ spring:
 #      maximum-pool-size: 15
 #      max-lifetime: 1800000
 #      idle-timeout: 600000
+  redis:
+    host: 10.1.1.71
+    port: 16379
+    database: 0
 
 mybatis:
   typeAliasesPackage: me.j360.disboot.mapper

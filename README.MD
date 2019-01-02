@@ -111,6 +111,7 @@ grafana + prometheus
 ```
 
 ## Sentinel
+限流监控在首次拦截时初始化并生成数据,Dashboard需要才能同步到对应的数据
 
 ```
 Shell
