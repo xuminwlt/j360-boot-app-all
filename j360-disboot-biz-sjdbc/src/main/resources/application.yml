@@ -24,6 +24,17 @@ spring:
     host: 10.1.1.71
     port: 16379
     database: 0
+  rocketmq:
+    name-server: 10.1.1.71:9876
+    consume-thread-max: 64
+    consume-thread-min: 20
+    producer:
+      group: j360-sjdbc
+      retry-times-when-send-async-failed: 0
+      send-msg-timeout: 30000
+      compress-msg-body-over-howmuch: 4096
+      retry-times-when-send-failed: 2
+      retry-another-broker-when-not-store-ok: false
 
 mybatis:
   typeAliasesPackage: me.j360.disboot.mapper

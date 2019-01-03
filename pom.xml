@@ -14,6 +14,7 @@
         <module>j360-disboot-client</module>
         <module>j360-disboot-base</module>
         <module>j360-disboot-biz-sjdbc</module>
+        <module>j360-disboot-start</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -164,6 +165,7 @@
                 <version>1.4.0</version>
             </dependency>
 
+            <!--redisson-->
             <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson</artifactId>
@@ -173,6 +175,18 @@
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>3.10.0</version>
+            </dependency>
+
+            <!--rocketmq-->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>4.3.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.rocketmq.spring.boot</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>1.0.0.RELEASE</version>
             </dependency>
 
             <!--logback-->
