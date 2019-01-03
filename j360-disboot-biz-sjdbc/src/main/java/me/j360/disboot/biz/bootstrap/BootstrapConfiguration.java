@@ -3,6 +3,8 @@ package me.j360.disboot.biz.bootstrap;
 import com.alibaba.csp.sentinel.adapter.dubbo.fallback.DubboFallbackRegistry;
 import com.alibaba.csp.sentinel.annotation.aspectj.SentinelResourceAspect;
 import com.alibaba.dubbo.rpc.RpcResult;
+import me.j360.disboot.biz.rocketmq.TxListener;
+import org.apache.rocketmq.client.producer.TransactionMQProducer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -39,5 +41,11 @@ public class BootstrapConfiguration {
     }
 
 
+    @Bean
+    public TransactionMQProducer transactionMQProducer() {
+        TransactionMQProducer transactionMQProducer = new TransactionMQProducer();
+        transactionMQProducer.setTransactionListener(new TxListener());
+        return transactionMQProducer;
+    }
 
 }

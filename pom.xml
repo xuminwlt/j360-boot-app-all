@@ -14,7 +14,6 @@
         <module>j360-disboot-client</module>
         <module>j360-disboot-base</module>
         <module>j360-disboot-biz-sjdbc</module>
-        <module>j360-disboot-start</module>
     </modules>
     <packaging>pom</packaging>
 
