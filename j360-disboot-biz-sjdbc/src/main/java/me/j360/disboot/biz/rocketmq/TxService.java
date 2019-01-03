@@ -22,15 +22,17 @@ public class TxService {
     @Autowired
     private TransactionMQProducer transactionMQProducer;
 
-    public String createOrderMessage(Message message) {
+    public void createOrderMessage(Message message) {
 
         try {
             TransactionSendResult result = transactionMQProducer.sendMessageInTransaction(message, null);
             result.getLocalTransactionState();
+
+            //TODO set biz state from result
+
         } catch (MQClientException e) {
             e.printStackTrace();
         }
-        return null;
     }
 
 

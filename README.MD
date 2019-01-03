@@ -72,8 +72,11 @@
 
 12. 分布式事务
     Pack(Saga)
+    
+13. RocketMQ support 事务
+    事务消息
 
-13. 限流
+14. 限流
     Sentinel
     
 ## Trace Data
