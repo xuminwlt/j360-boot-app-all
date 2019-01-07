@@ -63,9 +63,9 @@
     shiro + jwt + boot2
     参考: https://github.com/xuminwlt/j360-shiro
     module: j360-shiro-boot
-    
+       
 10. 分表分库读写分离
-    sharding-sphare v3.0+ boot2
+    sharding-sphere v3.0+ boot2
 
 11. 全链路跟踪
     Skywalking
@@ -78,6 +78,9 @@
 
 14. 限流
     Sentinel
+    
+15. 分布式配置
+    Apollo/Nacos
     
 ## Trace Data
 
