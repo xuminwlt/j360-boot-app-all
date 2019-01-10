@@ -4,7 +4,14 @@
 [![Build Status](https://travis-ci.org/xuminwlt/j360-disboot-all.svg?branch=master)](https://travis-ci.org/xuminwlt/j360-disboot-all)
 
 ----------------------------------
-## 验证功能点:
+## 快速上手
+
+微信小程序服务端接口快速上手案例: j360-disboot-miniprogram
+
+
+## 功能点
+
+### DevOps流程:
 1. CI配套
     
     - 开发

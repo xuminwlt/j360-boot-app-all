@@ -2,10 +2,10 @@ package me.j360.disboot.biz.service;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.dubbo.config.annotation.Service;
-import me.j360.disboot.base.domain.result.DefaultResult;
 import me.j360.disboot.biz.manager.UserManager;
 import me.j360.disboot.model.domain.User;
 import me.j360.disboot.service.UserService;
+import me.j360.framework.base.domain.rpc.result.DefaultResult;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

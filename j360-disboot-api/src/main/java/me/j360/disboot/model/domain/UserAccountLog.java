@@ -1,7 +1,7 @@
 package me.j360.disboot.model.domain;
 
 import lombok.Data;
-import me.j360.disboot.base.domain.model.BaseDO;
+import me.j360.framework.base.domain.BaseDO;
 
 /**
  * Package: me.j360.disboot.model.domain

@@ -1,7 +1,7 @@
 package me.j360.disboot.service;
 
-import me.j360.disboot.base.domain.result.DefaultResult;
 import me.j360.disboot.model.domain.User;
+import me.j360.framework.base.domain.rpc.result.DefaultResult;
 
 /**
  * Package: me.j360.disboot.service

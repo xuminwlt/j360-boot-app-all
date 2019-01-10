@@ -9,9 +9,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>j360-disboot-api</module>
-        <module>j360-disboot-biz</module>
         <module>j360-disboot-web</module>
-        <module>j360-disboot-client</module>
+        <module>j360-disboot-miniprogram</module>
         <module>j360-disboot-base</module>
         <module>j360-disboot-biz-sjdbc</module>
     </modules>
@@ -30,12 +29,51 @@
         <relativePath/>
     </parent>
 
+    <repositories>
+        <repository>
+            <id>maven-repo-github-releases</id>
+            <url>https://raw.github.com/xuminwlt/maven-repo/master/releases</url>
+        </repository>
+        <repository>
+            <id>maven-repo-github-snapshots</id>
+            <url>https://raw.github.com/xuminwlt/maven-repo/master/snapshots</url>
+        </repository>
+    </repositories>
+
     <properties>
         <project.encoding>UTF-8</project.encoding>
+        <j360.framework.version>1.1-SNAPSHOT</j360.framework.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!--j360 framework-->
+            <dependency>
+                <groupId>me.j360.framework</groupId>
+                <artifactId>j360-core</artifactId>
+                <version>${j360.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.j360.framework</groupId>
+                <artifactId>j360-base</artifactId>
+                <version>${j360.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.j360.framework</groupId>
+                <artifactId>j360-common</artifactId>
+                <version>${j360.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.j360.framework</groupId>
+                <artifactId>j360-boot-starts</artifactId>
+                <version>${j360.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.j360.framework</groupId>
+                <artifactId>j360-boot-starts-web</artifactId>
+                <version>${j360.framework.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>me.j360.disboot</groupId>
                 <artifactId>j360-disboot-base</artifactId>

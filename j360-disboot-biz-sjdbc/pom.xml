@@ -11,12 +11,18 @@
 
     <artifactId>j360-disboot-biz-sjdbc</artifactId>
 
-
     <dependencies>
+        <dependency>
+            <groupId>me.j360.framework</groupId>
+            <artifactId>j360-boot-starts</artifactId>
+            <version>${j360.framework.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>me.j360.disboot</groupId>
             <artifactId>j360-disboot-api</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
