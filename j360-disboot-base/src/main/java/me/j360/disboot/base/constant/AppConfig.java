@@ -14,6 +14,4 @@ public abstract class AppConfig {
     public static final String JWT_AUD_USET = "user";
     public static final String JWT_ISSUER = "J360";
 
-    //GUEST对应的访问URL
-    public static final String[] JWT_VTM = {"/api/biz/**"};
 }

@@ -9,6 +9,7 @@ import me.j360.framework.boot.shiro.dao.SessionStorageDAO;
 import me.j360.framework.boot.shiro.filter.TokenAuthcFilter;
 import me.j360.framework.boot.shiro.filter.TokenContextFilter;
 import me.j360.framework.boot.shiro.realm.TokenRealm;
+import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
 import org.apache.shiro.realm.Realm;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,7 @@ public class ShiroConfig extends AbstractTokenShiroConfiguration {
     @Bean
     public Realm realm() {
         TokenRealm realm = new TokenRealm(sessionStorageDAO);
+        realm.setCredentialsMatcher(new SimpleCredentialsMatcher());
         return realm;
     }
 

@@ -30,3 +30,7 @@ logging:
 shiro:
   web:
     enabled: true
+  sessionManager:
+    sessionIdCookieEnabled: false
+    sessionIdUrlRewritingEnabled: false
+
