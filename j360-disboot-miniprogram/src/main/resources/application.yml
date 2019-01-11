@@ -33,4 +33,5 @@ shiro:
   sessionManager:
     sessionIdCookieEnabled: false
     sessionIdUrlRewritingEnabled: false
+  userNativeSessionManager: true
 

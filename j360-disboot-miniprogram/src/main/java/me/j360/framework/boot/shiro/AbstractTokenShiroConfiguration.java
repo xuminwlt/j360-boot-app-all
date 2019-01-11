@@ -1,6 +1,10 @@
 package me.j360.framework.boot.shiro;
 
+import com.auth0.jwt.algorithms.Algorithm;
 import lombok.extern.slf4j.Slf4j;
+import me.j360.framework.boot.shiro.dao.SessionStorageDAO;
+import me.j360.framework.boot.shiro.filter.TokenAuthcFilter;
+import me.j360.framework.boot.shiro.filter.TokenContextFilter;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.Realm;
@@ -43,7 +47,10 @@ public abstract class AbstractTokenShiroConfiguration {
 
     @Autowired
     protected SecurityManager securityManager;
-
+    @Autowired
+    public Algorithm algorithm;
+    @Autowired
+    public JwtSignature jwtSignature;
 
     @Bean
     public ShiroFilterChainDefinition shiroFilterChainDefinition() {
@@ -71,12 +78,6 @@ public abstract class AbstractTokenShiroConfiguration {
 
     public abstract Map<String, Filter> getCustomFilters();
 
-//    @Bean
-//    public SecurityManager securityManager(@Autowired Realm realm) {
-//        DefaultSecurityManager securityManager = new DefaultSecurityManager();
-//        securityManager.setRealm(realm);
-//        return securityManager;
-//    }
 
     @Bean
     public DefaultWebSecurityManager securityManager(@Autowired Realm realm) {
@@ -84,4 +85,29 @@ public abstract class AbstractTokenShiroConfiguration {
         securityManager.setRealm(realm);
         return securityManager;
     }
+
+
+    @Bean
+    public Algorithm algorithm() {
+        Algorithm algorithm = Algorithm.HMAC256("secret");
+        return algorithm;
+    }
+
+    @Bean
+    public JwtSignature jwtSignature() {
+        JwtSignature jwtSignature = new JwtSignature(algorithm);
+        return jwtSignature;
+    }
+
+    public TokenContextFilter tokenContextFilter() {
+        TokenContextFilter context = new TokenContextFilter(jwtSignature);
+        return context;
+    }
+
+    public TokenAuthcFilter tokenAuthcFilter() {
+        TokenAuthcFilter authc = new TokenAuthcFilter(jwtSignature(), sessionStorageDAO());
+        return authc;
+    }
+
+    public abstract SessionStorageDAO sessionStorageDAO();
 }

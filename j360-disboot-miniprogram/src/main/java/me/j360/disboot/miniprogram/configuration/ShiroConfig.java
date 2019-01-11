@@ -30,18 +30,10 @@ import java.util.Map;
 public class ShiroConfig extends AbstractTokenShiroConfiguration {
 
     @Autowired
-    public Algorithm algorithm;
+    private RedissonClient redissonClient;
     @Autowired
     public SessionStorageDAO sessionStorageDAO;
-    @Autowired
-    public JwtSignature jwtSignature;
-    @Autowired
-    private RedissonClient redissonClient;
-    @Bean
-    public Algorithm algorithm() {
-        Algorithm algorithm = Algorithm.HMAC256("secret");
-        return algorithm;
-    }
+
 
     @Bean
     public SessionStorageDAO sessionStorageDAO() {
@@ -56,13 +48,6 @@ public class ShiroConfig extends AbstractTokenShiroConfiguration {
         realm.setCredentialsMatcher(new SimpleCredentialsMatcher());
         return realm;
     }
-
-    @Bean
-    public JwtSignature jwtSignature() {
-        JwtSignature jwtSignature = new JwtSignature(algorithm);
-        return jwtSignature;
-    }
-
 
     @Override
     public Map<String, String> getFilterPathFilterMap() {
@@ -81,15 +66,7 @@ public class ShiroConfig extends AbstractTokenShiroConfiguration {
         return filters;
     }
 
-    public TokenContextFilter tokenContextFilter() {
-        TokenContextFilter context = new TokenContextFilter(jwtSignature);
-        return context;
-    }
 
-    public TokenAuthcFilter tokenAuthcFilter() {
-        TokenAuthcFilter authc = new TokenAuthcFilter(jwtSignature(), sessionStorageDAO);
-        return authc;
-    }
 
 
 }
