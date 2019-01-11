@@ -12,7 +12,5 @@ public class ErrorCode extends DefaultErrorCode {
     public ErrorCode(int errorCode, String errorMsg) {
         super(errorCode, errorMsg);
     }
-
     public static final ErrorCode PRODUCT_OFFLINE = new ErrorCode(10001,"商品已经下线");
-
 }

@@ -9,4 +9,11 @@ public abstract class AppConfig {
 
     public static final String REDIS_PREFIX_FLODER = "j360:";
 
+    //Auth 定义jwt内容
+    public static final String JWT_AUD_GUEST = "guest";
+    public static final String JWT_AUD_USET = "user";
+    public static final String JWT_ISSUER = "J360";
+
+    //GUEST对应的访问URL
+    public static final String[] JWT_VTM = {"/api/biz/**"};
 }

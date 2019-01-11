@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![Build Status](https://travis-ci.org/xuminwlt/j360-disboot-all.svg?branch=master)](https://travis-ci.org/xuminwlt/j360-disboot-all)
 
-----------------------------------
+
 ## 快速上手
 
 微信小程序服务端接口快速上手案例: j360-disboot-miniprogram

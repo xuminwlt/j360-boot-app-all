@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds">
+    <springProperty scope="context" name="log.level" source="log.level.root"/>
+    <springProperty scope="context" name="log.path" source="log.path"/>
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <root level="${log.level}">
+        <appender-ref ref="stdout"/>
+    </root>
+</configuration>

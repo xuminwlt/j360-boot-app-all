@@ -1,0 +1,32 @@
+spring:
+  profiles:
+    active: token
+  datasource:
+    url: jdbc:mysql://10.1.1.71:3306/test?setUnicode=true&characterEncoding=UTF8&useSSL=false
+    username: paomiantv
+    password: Paomiantv1&
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 10.1.1.71
+    port: 16379
+    database: 0
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/static/
+
+mybatis:
+    type-aliases-package: me.j360.disboot.miniprogram
+    configuration:
+        map-underscore-to-camel-case: true
+        default-fetch-size: 100
+        default-statement-timeout: 30
+
+logging:
+  config: classpath:logback-spring.xml
+  path: logs
+  level:
+    root: DEBUG
+    org.springframework: INFO
+
+shiro:
+  web:
+    enabled: true

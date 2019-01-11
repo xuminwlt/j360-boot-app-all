@@ -4,4 +4,4 @@
  * Date: 2017/6/2 下午5:20
  * 说明：
  */
-package me.j360.disboot.client;
+package me.j360.disboot.miniprogram;
