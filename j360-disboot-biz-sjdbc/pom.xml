@@ -15,7 +15,6 @@
         <dependency>
             <groupId>me.j360.framework</groupId>
             <artifactId>j360-boot-starts</artifactId>
-            <version>${j360.framework.version}</version>
         </dependency>
 
         <dependency>
