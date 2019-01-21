@@ -150,6 +150,13 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>-Xdebug -Dspring.config.location=file:.././yml/application-local.yml,classpath:application.yml,classpath:application-sharding.yml</argLine>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

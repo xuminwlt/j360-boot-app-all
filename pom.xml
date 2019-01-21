@@ -42,7 +42,7 @@
 
     <properties>
         <project.encoding>UTF-8</project.encoding>
-        <j360.framework.version>1.1</j360.framework.version>
+        <j360.framework.version>1.2-SNAPSHOT</j360.framework.version>
     </properties>
 
     <dependencyManagement>

@@ -47,7 +47,7 @@
     product:
     
         java -Xss8m -jar  ***.jar  --spring.config.location=file:///etc/.myproject.yml
-        java -Xss8m -jar  ***.war  --spring.config.location=file:///etc/.myproject.yml
+            
         
 4. VM监控
     
@@ -78,7 +78,7 @@
     Skywalking
 
 12. 分布式事务
-    Pack(Saga)
+    Fescar 忽略Pack(Saga)
     
 13. RocketMQ support 事务
     事务消息
@@ -88,6 +88,8 @@
     
 15. 分布式配置
     Apollo/Nacos
+    
+16. Drools
     
 ## Trace Data
 
@@ -141,6 +143,9 @@ SERVER_OPTS_VM="-server -XX:NewRatio=3 -XX:SurvivorRatio=4 -XX:TargetSurvivorRat
 SERVER_OPTS="$SERVER_OPTS_MEMORY $SERVER_OPTS_VM -Dspring.config.location=file:.././yml/application-local.yml,classpath:application.yml"
 ```
 
+## Fescar
+
+针对支持ACID SQL数据库提供无入侵的分布式事务读未提交隔离级别支持,对于其他类存储提供手动Commit和Rollback支持.
 
 # CI 
 

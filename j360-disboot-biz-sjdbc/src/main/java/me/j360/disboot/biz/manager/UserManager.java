@@ -42,4 +42,9 @@ public class UserManager {
         userRepository.insertAccount(userAccountLog);
         return userAccountLog;
     }
+
+
+    public void sendMQ() {
+
+    }
 }

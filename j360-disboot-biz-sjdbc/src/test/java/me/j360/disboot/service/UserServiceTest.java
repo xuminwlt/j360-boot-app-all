@@ -1,16 +1,12 @@
 package me.j360.disboot.service;
 
-import me.j360.disboot.biz.bootstrap.BootstrapApplication;
 import me.j360.disboot.biz.manager.UserManager;
 import me.j360.disboot.model.domain.User;
 import me.j360.disboot.model.domain.UserAccountLog;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @author: min_xu
@@ -18,10 +14,8 @@ import org.springframework.test.context.junit4.SpringRunner;
  * 说明：
  */
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = BootstrapApplication.class)
 @ActiveProfiles("sharding")
-public class UserServiceTest {
+public class UserServiceTest extends BaseJunitTest {
 
     @Autowired
     private UserManager userManager;

@@ -10,7 +10,7 @@
 	<fileSets>
 		<!--scripts -->
 		<fileSet>
-			<directory>src/main/bin</directory>
+			<directory>./../script/bin</directory>
 			<outputDirectory>bin</outputDirectory>
 			<includes>
 				<include>*.sh</include>
@@ -20,6 +20,15 @@
 		</fileSet>
 		<fileSet>
 			<directory>./../script/bin</directory>
+			<outputDirectory>bin</outputDirectory>
+			<includes>
+				<include>env</include>
+			</includes>
+			<fileMode>0555</fileMode>
+			<lineEnding>unix</lineEnding>
+		</fileSet>
+		<fileSet>
+			<directory>src/main/bin</directory>
 			<outputDirectory>bin</outputDirectory>
 			<includes>
 				<include>*.sh</include>
