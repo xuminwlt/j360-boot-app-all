@@ -2,10 +2,8 @@ package me.j360.disboot.web.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
-import com.alibaba.dubbo.config.annotation.Reference;
 import kamon.annotation.EnableKamon;
 import kamon.annotation.Trace;
-import me.j360.disboot.service.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    @Reference(interfaceClass = UserService.class)
-    private UserService userService;
+    //@Reference(interfaceClass = UserService.class)
+    //private UserService userService;
 
     @Trace("sayHello")
     @ResponseBody
