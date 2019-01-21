@@ -6,24 +6,24 @@ spring:
   resources:
     static-locations: classpath:/META-INF/resources/,classpath:/static/
 
-dubbo:
-  application:
-    id: disboot-web
-    name: disboot-web
-    logger: slf4j
-    qos-enable: true
-    qos-port: 22223
-  consumer:
-    filter: -sentinel.dubbo.consumer.filter
-  protocol:
-    id: dubbo
-    name: dubbo
-    port: 20880
-  ## RegistryConfig Bean
-  registry:
-    id: zk
-    address: zookeeper://127.0.0.1:2181
-    client: curator
+#dubbo:
+#  application:
+#    id: disboot-web
+#    name: disboot-web
+#    logger: slf4j
+#    qos-enable: true
+#    qos-port: 22223
+#  consumer:
+#    filter: -sentinel.dubbo.consumer.filter
+#  protocol:
+#    id: dubbo
+#    name: dubbo
+#    port: 20880
+#  ## RegistryConfig Bean
+#  registry:
+#    id: zk
+#    address: zookeeper://127.0.0.1:2181
+#    client: curator
 
 
 server:

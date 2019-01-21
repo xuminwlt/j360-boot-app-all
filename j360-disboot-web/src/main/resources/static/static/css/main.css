@@ -1,0 +1,280 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body, #app {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none
+}
+
+#app {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.header {
+    background-color: #20a0ff;
+}
+
+.el-submenu [class^=fa] {
+    vertical-align: baseline;
+    margin-right: 10px;
+}
+
+.el-menu-item [class^=fa] {
+    vertical-align: baseline;
+    margin-right: 10px;
+}
+
+.toolbar {
+    background: #f2f2f2;
+    padding: 10px 10px 0;
+    margin: 10px 0;
+
+}
+
+.toolbar .el-form-item {
+    margin-bottom: 10px;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: all .2s ease;
+}
+
+.fade-enter, .fade-leave-active {
+    opacity: 0;
+}
+
+/*
+  内容展示区基础样式
+*/
+
+.container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.container .main {
+    display: flex;
+    /*background : #324057;*/
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.content-container {
+    flex: 1;
+    overflow-y: scroll;
+    padding: 0 15px 10px;
+}
+
+.content-container .breadcrumb-container .title {
+    width: 200px;
+    float: left;
+    color: #475669;
+}
+
+.content-container .breadcrumb-container .breadcrumb-inner {
+    float: right;
+}
+
+.content-container .content-wrapper {
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+/*常用间距*/
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.ml-10 {
+    margin-left: 10px;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+/*
+处理多选下拉框，选项过长问题
+*/
+.el-select .el-tag {
+    height: auto;
+}
+
+.el-select .el-tag span {
+    max-width: 87%;
+    display: inline-block;
+    height: auto;
+    word-break: break-all;
+    white-space: initial;
+}
+
+.el-select-dropdown__item {
+    height: auto;
+}
+
+.el-select-dropdown__item span {
+    max-width: 200px;
+    display: inline-block;
+    height: auto;
+    word-break: break-all;
+    white-space: initial;
+    padding-right: 20px;
+}
+
+/*以下样式未知*/
+
+.crumbs {
+    margin-bottom: 20px;
+}
+
+.pagination {
+    margin: 20px 0;
+    text-align: right;
+}
+
+.plugins-tips {
+    padding: 20px 10px;
+    margin-bottom: 20px;
+}
+
+.el-button + .el-tooltip {
+    margin-left: 10px;
+}
+
+.el-table tr:hover {
+    background: #f6faff;
+}
+
+.mgb20 {
+    margin-bottom: 20px;
+}
+
+.move-enter-active, .move-leave-active {
+    transition: opacity .5s;
+}
+
+.move-enter, .move-leave {
+    opacity: 0;
+}
+
+/*BaseForm*/
+.form-box {
+    width: 600px;
+}
+
+.form-box .line {
+    text-align: center;
+}
+
+.el-time-panel__content::after, .el-time-panel__content::before {
+    margin-top: -7px;
+}
+
+/* 封面文件选择部分 */
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    box-sizing: border-box;
+    width: 360px;
+    height: 180px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.avatar-uploader .el-upload:hover {
+    border-color: #20a0ff;
+}
+
+.avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+}
+
+.avatar {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+/*VueEditor*/
+.ql-container {
+    min-height: 400px;
+}
+
+.ql-snow .ql-tooltip {
+    transform: translateX(117.5px) translateY(10px) !important;
+}
+
+.editor-btn {
+    margin-top: 20px;
+}
+
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+}
+.avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+}
+.avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+}
+
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+
+

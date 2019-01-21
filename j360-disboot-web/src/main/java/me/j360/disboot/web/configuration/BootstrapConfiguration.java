@@ -1,12 +1,6 @@
 package me.j360.disboot.web.configuration;
 
-import com.alibaba.csp.sentinel.adapter.dubbo.fallback.DubboFallbackRegistry;
-import com.alibaba.csp.sentinel.annotation.aspectj.SentinelResourceAspect;
-import com.alibaba.dubbo.rpc.RpcResult;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.annotation.PostConstruct;
 
 /**
  * Package: me.j360.disboot.web.bootstrap
@@ -19,23 +13,23 @@ import javax.annotation.PostConstruct;
 public class BootstrapConfiguration {
 
 
-    @PostConstruct
-    public void init() {
-        registerFallback();
-    }
-
-
-    @Bean
-    public SentinelResourceAspect sentinelResourceAspect() {
-        return new SentinelResourceAspect();
-    }
-
-
-    private static void registerFallback() {
-        // Register fallback handler for consumer.
-        // If you only want to handle degrading, you need to
-        // check the type of BlockException.
-        DubboFallbackRegistry.setConsumerFallback((a, b, ex) ->
-                new RpcResult("Error: " + ex.getClass().getTypeName()));
-    }
+//    @PostConstruct
+//    public void init() {
+//        registerFallback();
+//    }
+//
+//
+//    @Bean
+//    public SentinelResourceAspect sentinelResourceAspect() {
+//        return new SentinelResourceAspect();
+//    }
+//
+//
+//    private static void registerFallback() {
+//        // Register fallback handler for consumer.
+//        // If you only want to handle degrading, you need to
+//        // check the type of BlockException.
+//        DubboFallbackRegistry.setConsumerFallback((a, b, ex) ->
+//                new RpcResult("Error: " + ex.getClass().getTypeName()));
+//    }
 }

@@ -51,9 +51,12 @@
         
 4. VM监控
     
+    启动server.sh shell中开启JMX
+    env中定义环境和额外的vm参数
     
 5. Log支持
     slf4j+logback
+    
 6. 启动集成
     
     多环境、多配置支持
@@ -64,12 +67,12 @@
     
 8. Web集成
     
+    - j360-disboot-web
+        http://localhost:8081/index.html#/login
     
 9. Shiro集成
     
-    shiro + jwt + boot2
-    参考: https://github.com/xuminwlt/j360-shiro
-    module: j360-shiro-boot
+    - shiro + jwt + boot2 (j360-disboot-miniprogram)
        
 10. 分表分库读写分离
     sharding-sphere v3.0+ boot2

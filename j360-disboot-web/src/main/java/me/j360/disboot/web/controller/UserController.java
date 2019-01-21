@@ -5,9 +5,7 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.dubbo.config.annotation.Reference;
 import kamon.annotation.EnableKamon;
 import kamon.annotation.Trace;
-import me.j360.disboot.model.domain.User;
 import me.j360.disboot.service.UserService;
-import me.j360.framework.base.domain.rpc.result.DefaultResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,11 +28,11 @@ public class UserController {
     @RequestMapping("/sayHello")
     @SentinelResource(value = "sayHello", blockHandler = "handleException", blockHandlerClass = {UserController.class})
     public String sayHello() {
-        DefaultResult<User> result = userService.getUserById(1L);
-        if (result.isSuccess()) {
-            User user = result.getData();
-            return user.getName();
-        }
+//        DefaultResult<User> result = userService.getUserById(1L);
+//        if (result.isSuccess()) {
+//            User user = result.getData();
+//            return user.getName();
+//        }
         return "null";
     }
 
