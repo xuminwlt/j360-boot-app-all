@@ -84,10 +84,11 @@
     Fescar 忽略Pack(Saga)
     
 13. RocketMQ support 事务
-    事务消息
+    事务消息,异步可靠性消息事务实现最终一致性机制,在部分场景下实现资源最终一致性。
 
 14. 限流
     Sentinel
+    
     
 15. 分布式配置
     Apollo/Nacos
