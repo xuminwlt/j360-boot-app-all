@@ -7,6 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 
 /**
  * TxService Tester.
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @version 1.0
  * @since <pre>01/21/2019</pre>
  */
+@ActiveProfiles("sharding")
 public class TxServiceTest extends BaseJunitTest {
 
     @Autowired
@@ -33,7 +35,7 @@ public class TxServiceTest extends BaseJunitTest {
      */
     @Test
     public void testCreateOrderMessage() throws Exception {
-        Message message = new Message("TopicTest",
+        Message message = new Message("test",
                 "test_tag",
                 ("Transaction Message ").getBytes(RemotingHelper.DEFAULT_CHARSET));
 
@@ -43,7 +45,7 @@ public class TxServiceTest extends BaseJunitTest {
 
     @Test
     public void createPushMessage() throws Exception {
-        Message message = new Message("TopicTest",
+        Message message = new Message("test",
                 "test_tag",
                 ("Transaction Message ").getBytes(RemotingHelper.DEFAULT_CHARSET));
 

@@ -4,7 +4,7 @@ spring:
   main:
     web-application-type: NONE
   profiles:
-    active: @spring.profiles.active@
+    active: sharding
 #  datasource:
 #    type: com.zaxxer.hikari.HikariDataSource
 #    url: jdbc:mysql://10.1.1.71:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false

@@ -3,10 +3,15 @@ package me.j360.disboot.biz.rocketmq;
 import lombok.extern.slf4j.Slf4j;
 import me.j360.framework.base.constant.DefaultErrorCode;
 import me.j360.framework.base.exception.ServiceException;
+import org.apache.rocketmq.client.exception.MQBrokerException;
 import org.apache.rocketmq.client.exception.MQClientException;
-import org.apache.rocketmq.client.producer.*;
+import org.apache.rocketmq.client.producer.SendCallback;
+import org.apache.rocketmq.client.producer.SendResult;
+import org.apache.rocketmq.client.producer.TransactionMQProducer;
+import org.apache.rocketmq.client.producer.TransactionSendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.remoting.exception.RemotingException;
+import org.rocketmq.starter.core.producer.RocketMQProducerTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,12 +26,12 @@ import org.springframework.stereotype.Component;
 public class TxService {
 
     @Autowired
-    private DefaultMQProducer mqProducer;
+    private RocketMQProducerTemplate producerTemplate;
     @Autowired
     private TransactionMQProducer transactionMQProducer;
 
     public void createOrderMessage(Message message) {
-
+        message.setTags("ORDER");
         try {
             TransactionSendResult result = transactionMQProducer.sendMessageInTransaction(message, new SendCallback() {
                 @Override
@@ -40,6 +45,7 @@ public class TxService {
                 }
             });
 
+            //异步确保型事务
             result.getLocalTransactionState();
             //TODO set biz state from result
 
@@ -51,19 +57,10 @@ public class TxService {
 
 
     public void createPushMessage(Message message) {
+        message.setTags("PUSH");
         try {
-            mqProducer.send(message, new SendCallback() {
-                @Override
-                public void onSuccess(SendResult sendResult) {
-
-                }
-
-                @Override
-                public void onException(Throwable e) {
-
-                }
-            });
-        } catch (MQClientException | RemotingException | InterruptedException e) {
+            producerTemplate.send(message);
+        } catch (MQBrokerException | MQClientException | RemotingException | InterruptedException e) {
             throw new ServiceException(DefaultErrorCode.SYSTEM_ERROR, e);
         }
     }
