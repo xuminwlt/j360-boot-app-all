@@ -13,6 +13,7 @@
         <module>j360-disboot-miniprogram</module>
         <module>j360-disboot-base</module>
         <module>j360-disboot-biz-sjdbc</module>
+        <module>j360-disboot-websocket</module>
     </modules>
     <packaging>pom</packaging>
 

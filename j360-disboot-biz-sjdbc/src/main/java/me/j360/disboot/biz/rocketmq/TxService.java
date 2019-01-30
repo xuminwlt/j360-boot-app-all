@@ -30,6 +30,7 @@ public class TxService {
     @Autowired
     private TransactionMQProducer transactionMQProducer;
 
+    //异步确保型事务, 发送失败抛出异常
     public void createOrderMessage(Message message) {
         message.setTags("ORDER");
         try {
@@ -44,18 +45,12 @@ public class TxService {
                     log.error("传输失败", e);
                 }
             });
-
-            //异步确保型事务
-            result.getLocalTransactionState();
-            //TODO set biz state from result
-
-
         } catch (MQClientException e) {
             throw new ServiceException(DefaultErrorCode.SYSTEM_ERROR, e);
         }
     }
 
-
+    //常规消息
     public void createPushMessage(Message message) {
         message.setTags("PUSH");
         try {
