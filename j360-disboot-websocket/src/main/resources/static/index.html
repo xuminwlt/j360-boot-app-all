@@ -8,9 +8,10 @@
 	<script>
 		var url = 'http://'+window.location.host+'/j360';
 		var sock = new SockJS(url);  //创建SockJS连接。
+		//or -> sock.setRequestHeader("Author", "token");
 		var stomp = Stomp.over(sock);//创建STOMP客户端实例。实际上封装了SockJS,这样就能在WebSocket连接上发送STOMP消息。
 		var payload = JSON.stringify({'message':'Marco!'});
-			stomp.connect('guest','guest',function(frame){
+			stomp.connect({'guest','guest'},function(frame){
 				stomp.send("/app/marco",{},payload);
 				stomp.send("/app/message",{},payload);
 				stomp.subscribe('/app/subscribe', function(message){
