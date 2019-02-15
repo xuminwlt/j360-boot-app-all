@@ -1,36 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hello WebSocket</title>
-	<script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
-	<script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
-	<script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.js"></script>
+
+        <meta charset="utf-8" />
+
+        <title>Demo Chat</title>
+
+        <link href="bootstrap.css" rel="stylesheet">
+
+	<style>
+		body {
+			padding:20px;
+		}
+		#console {
+			height: 400px;
+			overflow: auto;
+		}
+		.username-msg {color:orange;}
+		.connect-msg {color:green;}
+		.disconnect-msg {color:red;}
+		.send-msg {color:#888}
+	</style>
+
+
+	<script src="js/socket.io/socket.io.js"></script>
+        <script src="js/moment.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
 	<script>
-		var url = 'http://'+window.location.host+'/j360';
-		var sock = new SockJS(url);  //创建SockJS连接。
-		//or -> sock.setRequestHeader("Author", "token");
-		var stomp = Stomp.over(sock);//创建STOMP客户端实例。实际上封装了SockJS,这样就能在WebSocket连接上发送STOMP消息。
-		var payload = JSON.stringify({'message':'Marco!'});
-			stomp.connect({'guest','guest'},function(frame){
-				stomp.send("/app/marco",{},payload);
-				stomp.send("/app/message",{},payload);
-				stomp.subscribe('/app/subscribe', function(message){
 
-				});
+		var userName = 'user' + Math.floor((Math.random()*1000)+1);
 
-				stomp.subscribe('/queue/marco', function(message){
-
-				});
-				stomp.subscribe('/users/topic/sendtouser', function(message){//给指定用户发送一对一的消息前缀是/users/。
-				});
-
-				stomp.subscribe('/users/1/message', function(message){
-
-				});
+		var socket =  io.connect('http://localhost:9092', {
+			query: 'userId=1&shopId=3&jwt=42'
 		});
+
+		socket.on('connect', function() {
+			output('<span class="connect-msg">Client has connected to the server!</span>');
+		});
+
+		socket.on('chatevent', function(data) {
+			output('<span class="username-msg">' + data.userName + ':</span> ' + data.message);
+		});
+
+		socket.on('disconnect', function() {
+			output('<span class="disconnect-msg">The client has disconnected!</span>');
+		});
+
+                function sendDisconnect() {
+                        socket.disconnect();
+                }
+
+		function sendMessage() {
+                        var message = $('#msg').val();
+                        $('#msg').val('');
+
+                        var jsonObject = {userName: userName,
+                                          message: message};
+                        socket.emit('chatevent', jsonObject);
+		}
+
+		function output(message) {
+                        var currentTime = "<span class='time'>" +  moment().format('HH:mm:ss.SSS') + "</span>";
+                        var element = $("<div>" + currentTime + " " + message + "</div>");
+			$('#console').prepend(element);
+		}
+
+        $(document).keydown(function(e){
+            if(e.keyCode == 13) {
+                $('#send').click();
+            }
+        });
 	</script>
 </head>
+
 <body>
 
+	<h1>Netty-socketio Demo Chat</h1>
+
+	<br/>
+
+	<div id="console" class="well">
+	</div>
+
+        <form class="well form-inline" onsubmit="return false;">
+           <input id="msg" class="input-xlarge" type="text" placeholder="Type something..."/>
+           <button type="button" onClick="sendMessage()" class="btn" id="send">Send</button>
+           <button type="button" onClick="sendDisconnect()" class="btn">Disconnect</button>
+        </form>
+
+
+
 </body>
+
 </html>
