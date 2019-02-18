@@ -152,5 +152,7 @@ public class SocketServer {
         eventStore.publish(BizEventPubSubType.CHATEVENT, message);
     }
 
-
+    public void stop() {
+        server.stop();
+    }
 }

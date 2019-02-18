@@ -18,14 +18,14 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean("socketServer9092")
+    @Bean(value = "socketServer9092", destroyMethod = "stop")
     public SocketServer socketServer1() {
         SocketServer socketServer = new SocketServer();
         socketServer.start(9092);
         return socketServer;
     }
 
-    @Bean("socketServer9093")
+    @Bean(value = "socketServer9093", destroyMethod = "stop")
     public SocketServer socketServer2() {
         SocketServer socketServer = new SocketServer();
         socketServer.start(9093);
