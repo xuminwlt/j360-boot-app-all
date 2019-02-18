@@ -1,27 +1,34 @@
 package me.j360.disboot.websocket;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author: min_xu
  * @date: 2019/1/30 5:01 PM
- * 说明：
+ * 说明：Socket服务集群环境
  */
+@Configuration
 @SpringBootApplication
-public class Application implements CommandLineRunner{
+public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
-    @Autowired
-    private SocketServer socketServer;
+    @Bean("socketServer9092")
+    public SocketServer socketServer1() {
+        SocketServer socketServer = new SocketServer();
+        socketServer.start(9092);
+        return socketServer;
+    }
 
-    @Override
-    public void run(String... args) throws Exception {
-        socketServer.start();
+    @Bean("socketServer9093")
+    public SocketServer socketServer2() {
+        SocketServer socketServer = new SocketServer();
+        socketServer.start(9093);
+        return socketServer;
     }
 }

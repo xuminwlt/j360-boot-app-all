@@ -29,11 +29,9 @@
 
 	<script>
 
-		var userName = 'user' + Math.floor((Math.random()*1000)+1);
+                var userName = 'user' + Math.floor((Math.random()*1000)+1);
 
-		var socket =  io.connect('http://localhost:9092', {
-			query: 'userId=1&shopId=3&jwt=42'
-		});
+		var socket =  io.connect('http://localhost:9092');
 
 		socket.on('connect', function() {
 			output('<span class="connect-msg">Client has connected to the server!</span>');
@@ -54,11 +52,21 @@
 		function sendMessage() {
                         var message = $('#msg').val();
                         $('#msg').val('');
-
-                        var jsonObject = {userName: userName,
-                                          message: message};
-                        socket.emit('chatevent', jsonObject);
+                        socket.emit('chatevent', {userName: userName, message: message});
 		}
+				socket.on('ackevent2', function(data, ackServerCallback, arg1) {
+					output('<span class="username-msg">' + data.userName + ':</span> ' + data.message);
+					if (ackServerCallback) {
+						ackServerCallback('server message was delivered to client!');
+					}
+				});
+
+				socket.on('ackevent3', function(data, ackServerCallback) {
+					output('<span class="username-msg">' + data.userName + ':</span> ' + data.message);
+					if (ackServerCallback) {
+						ackServerCallback();
+					}
+				});
 
 		function output(message) {
                         var currentTime = "<span class='time'>" +  moment().format('HH:mm:ss.SSS') + "</span>";

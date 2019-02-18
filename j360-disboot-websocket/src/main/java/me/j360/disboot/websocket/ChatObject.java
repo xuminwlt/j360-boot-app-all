@@ -1,6 +1,8 @@
 package me.j360.disboot.websocket;
 
-public class ChatObject {
+import java.io.Serializable;
+
+public class ChatObject implements Serializable {
 
     private String userName;
     private String message;
