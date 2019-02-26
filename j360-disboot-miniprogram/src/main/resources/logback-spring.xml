@@ -12,4 +12,21 @@
     <root level="${log.level}">
         <appender-ref ref="stdout"/>
     </root>
+
+    <appender name="zipkin" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log.path}/zipkin/zipkin.log</File>
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${log.path}/zipkin/zipkin-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>15</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="brave.Tracer" level="info" additivity="false">
+        <appender-ref ref="zipkin"/>
+    </logger>
+
 </configuration>
