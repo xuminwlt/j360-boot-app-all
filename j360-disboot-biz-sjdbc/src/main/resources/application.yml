@@ -59,11 +59,9 @@ dubbo:
   config:
     multiple: false
   ## ProtocolConfig Bean
-  protocols:
-    dubbo:
-      name: dubbo
-      port: 20880
-      status: server
+  protocol:
+    name: dubbo
+    port: 20880
   ## RegistryConfig Bean
   registry:
     id: zk

@@ -14,6 +14,7 @@
         <module>j360-disboot-base</module>
         <module>j360-disboot-biz-sjdbc</module>
         <module>j360-disboot-websocket</module>
+        <module>j360-disboot-common</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -44,6 +45,7 @@
     <properties>
         <project.encoding>UTF-8</project.encoding>
         <j360.framework.version>1.2-SNAPSHOT</j360.framework.version>
+        <dubbo.version>2.7.0</dubbo.version>
     </properties>
 
     <dependencyManagement>
@@ -113,28 +115,50 @@
                 <version>1.18.4</version>
             </dependency>
 
-            <!--dubbo-->
+            <!-- Apache Dubbo  -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-dependencies-bom</artifactId>
+                <version>${dubbo.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo</artifactId>
-                <version>2.7.0</version>
+                <version>${dubbo.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>servlet-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo-spring-boot-starter</artifactId>
-                <version>2.7.0</version>
+                <version>${dubbo.version}</version>
             </dependency>
-            <!-- Spring Context Extras -->
+
             <dependency>
-                <groupId>com.alibaba.spring</groupId>
-                <artifactId>spring-context-support</artifactId>
-                <version>1.0.2</version>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>4.1.0</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.dubbo</groupId>
-                <artifactId>dubbo-spring-boot-actuator</artifactId>
-                <version>2.7.0</version>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>4.1.0</version>
             </dependency>
+
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
