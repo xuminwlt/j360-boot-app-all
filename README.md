@@ -81,15 +81,19 @@ java -jar xxxx.jar -Dspring.config.location=file:.././yml/application-local.yml,
     env中定义环境和额外的vm参数
     
 5. Log支持
-    slf4j+logback
+
+    - 默认使用: slf4j+logback
+    - 可配置log4j2进行异步日志收集,异步日志收集需要控制异步线程池的停止和启动过程参数, 同时异步收集注意线程池队列打满时的拒绝策略默认为当前线程执行会导致当前线程影响。
+        
     
 6. 启动集成
     
-    多环境、多配置支持
+    多环境、多配置支持:配置和源码分离可以通过vm参数进行多环境的配置支持
     
 7. RPC集成
 
-    dubbo2.7 + boot2
+    dubbo2.7 + boot start
+    
     
 8. Web集成
     
@@ -101,6 +105,7 @@ java -jar xxxx.jar -Dspring.config.location=file:.././yml/application-local.yml,
     - shiro + jwt + boot2 (j360-disboot-miniprogram)
        
 10. 分表分库读写分离
+
     sharding-sphere v3.1 boot2
 
 11. 全链路跟踪
@@ -110,11 +115,15 @@ java -jar xxxx.jar -Dspring.config.location=file:.././yml/application-local.yml,
     
     
 12. 分布式事务
-    Fescar 忽略Pack(Saga)
+    - Fescar
+    - Saga
+    - RocketMQ
     
-13. RocketMQ support 事务
+    
+13. RocketMQ
     事务消息,异步可靠性消息事务实现最终一致性机制,在部分场景下实现资源最终一致性。
-
+    
+    
 14. 限流
     Sentinel
     
@@ -122,17 +131,16 @@ java -jar xxxx.jar -Dspring.config.location=file:.././yml/application-local.yml,
 15. 分布式配置
     Apollo/Nacos
     
-16. Drools
+16. 规则引擎: Drools
 
 17. SocketIO with Netty
-    基于SocketIO协议的Netty版本实现Websocket分布式集群案例
+
+   - 基于SocketIO协议的Netty版本实现Websocket分布式集群案例
 
     
-## Trace Data
+## 链路跟踪
 
-Kamon
-
-### 如何启用 Kamon Metrics
+### 本地Metrics: Kamon Metrics
 
 > 
     [Kamon](http://kamon.io/documentation/get-started/) is used to track saga performance and reports trace data to both log
@@ -149,9 +157,7 @@ b. Tracing data reported to  prometheus
 
 grafana + prometheus
 
-### Skywalking full route trace
-
-
+### 全链路分析: Skywalking
 
  
 ## sharding-sphare
