@@ -37,6 +37,10 @@
             <artifactId>j360-boot-starts</artifactId>
         </dependency>
         <dependency>
+            <groupId>me.j360.framework</groupId>
+            <artifactId>j360-boot-starts-web</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
