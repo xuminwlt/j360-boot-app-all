@@ -1,7 +1,7 @@
 # 使用spring-boot脚手架重写分布式业务
 
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
-[![Build Status](https://travis-ci.org/xuminwlt/j360-disboot-all.svg?branch=master)](https://travis-ci.org/xuminwlt/j360-disboot-all)
+[![Build Status](https://travis-ci.org/xuminwlt/j360-boot-app-all.svg?branch=master)](https://travis-ci.org/xuminwlt/j360-boot-app-all)
 
 ## 模块说明
  - disboot-base: 工程二分库基础包, 设置该系统相关的定义参数及硬配置
