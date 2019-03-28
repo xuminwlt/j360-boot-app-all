@@ -19,7 +19,7 @@ import java.util.List;
  * 说明：
  */
 
-@Profile("token")
+@Profile("test")
 @Configuration
 public class SwaggerConfig {
 

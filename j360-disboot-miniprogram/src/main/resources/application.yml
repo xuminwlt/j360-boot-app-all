@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: token
+    active: test
 
 mybatis:
     type-aliases-package: me.j360.disboot.miniprogram
