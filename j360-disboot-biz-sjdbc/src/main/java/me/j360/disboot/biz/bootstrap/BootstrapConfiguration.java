@@ -2,10 +2,9 @@ package me.j360.disboot.biz.bootstrap;
 
 import com.alibaba.csp.sentinel.adapter.dubbo.fallback.DubboFallbackRegistry;
 import com.alibaba.csp.sentinel.annotation.aspectj.SentinelResourceAspect;
-import com.alibaba.dubbo.rpc.RpcResult;
 import me.j360.disboot.biz.rocketmq.TxListener;
+import org.apache.dubbo.rpc.RpcResult;
 import org.apache.rocketmq.client.exception.MQClientException;
-import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.TransactionMQProducer;
 import org.rocketmq.starter.configuration.RocketMQProperties;
 import org.rocketmq.starter.core.producer.RocketMQProducerTemplate;
@@ -27,25 +26,13 @@ import javax.annotation.PostConstruct;
 public class BootstrapConfiguration {
 
 
-    @PostConstruct
-    public void init() throws MQClientException {
-        registerFallback();
-    }
-
-
     @Bean
     public SentinelResourceAspect sentinelResourceAspect() {
         return new SentinelResourceAspect();
     }
 
 
-    private static void registerFallback() {
-        // Register fallback handler for consumer.
-        // If you only want to handle degrading, you need to
-        // check the type of BlockException.
-        DubboFallbackRegistry.setConsumerFallback((a, b, ex) ->
-                new RpcResult("Error: " + ex.getClass().getTypeName()));
-    }
+
 
 
     @Autowired

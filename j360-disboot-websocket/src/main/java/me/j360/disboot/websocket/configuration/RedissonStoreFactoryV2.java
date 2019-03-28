@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.j360.disboot.websocket;
+package me.j360.disboot.websocket.configuration;
 
 import com.corundumstudio.socketio.store.RedissonPubSubStore;
 import com.corundumstudio.socketio.store.RedissonStore;

@@ -1,24 +1,11 @@
-/**
- * Copyright (c) 2012-2019 Nikita Koksharov
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-package me.j360.disboot.websocket;
+
+package me.j360.disboot.websocket.configuration;
 
 import com.corundumstudio.socketio.store.pubsub.PubSubListener;
 import com.corundumstudio.socketio.store.pubsub.PubSubType;
 import io.netty.util.internal.PlatformDependent;
 import lombok.extern.slf4j.Slf4j;
+import me.j360.disboot.websocket.constant.PubSubEventType;
 import org.redisson.api.RTopic;
 import org.redisson.api.RedissonClient;
 import org.redisson.api.listener.MessageListener;
@@ -42,18 +29,17 @@ public class RedissonPubSubEventStore {
         this.nodeId = nodeId;
     }
 
-    public void publish(BizEventPubSubType type, DispatchEventMessage msg) {
+    public void publish(PubSubEventType type, DispatchEventMessage msg) {
         msg.setNodeId(nodeId);
         redissonPub.getTopic(type.toString()).publish(msg);
     }
 
-    public <T extends DispatchEventMessage> void subscribe(BizEventPubSubType type, final PubSubListener<T> listener, Class<T> clazz) {
+    public <T extends DispatchEventMessage> void subscribe(PubSubEventType type, final PubSubListener<T> listener, Class<T> clazz) {
         String name = type.toString();
         RTopic topic = redissonSub.getTopic(name);
         int regId = topic.addListener(DispatchEventMessage.class, new MessageListener<DispatchEventMessage>() {
             @Override
             public void onMessage(CharSequence channel, DispatchEventMessage msg) {
-                log.info("订阅消息:", msg);
                 if (!nodeId.equals(msg.getNodeId())) {
                     listener.onMessage((T)msg);
                 }
