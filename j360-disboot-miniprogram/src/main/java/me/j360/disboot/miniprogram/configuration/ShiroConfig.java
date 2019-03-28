@@ -4,7 +4,6 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.google.common.collect.Maps;
 import me.j360.framework.boot.shiro.AbstractTokenShiroConfiguration;
 import me.j360.framework.boot.shiro.JwtSignature;
-import me.j360.framework.boot.shiro.dao.RedissonSessionStorageDAO;
 import me.j360.framework.boot.shiro.dao.SessionStorageDAO;
 import me.j360.framework.boot.shiro.filter.TokenAuthcFilter;
 import me.j360.framework.boot.shiro.filter.TokenContextFilter;
@@ -13,6 +12,7 @@ import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
 import org.apache.shiro.realm.Realm;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -28,6 +28,11 @@ import java.util.Map;
 
 @Configuration
 public class ShiroConfig extends AbstractTokenShiroConfiguration {
+
+    @Value("${shiro.issue}")
+    private String issue;
+    @Value("${shiro.secret}")
+    private String secret;
 
     @Autowired
     private RedissonClient redissonClient;
@@ -66,7 +71,18 @@ public class ShiroConfig extends AbstractTokenShiroConfiguration {
         return filters;
     }
 
+    @Bean
+    public Algorithm algorithm() {
+        Algorithm algorithm = Algorithm.HMAC256(secret);
+        return algorithm;
+    }
 
+    @Bean
+    public JwtSignature jwtSignature() {
+        JwtSignature jwtSignature = new JwtSignature(algorithm(), sessionStorageDAO());
+        jwtSignature.setJWT_ISSUER(issue);
+        return jwtSignature;
+    }
 
 
 }

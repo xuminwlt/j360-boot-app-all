@@ -1,8 +1,11 @@
 package me.j360.disboot.websocket.configuration;
 
+import com.auth0.jwt.algorithms.Algorithm;
 import me.j360.disboot.websocket.constant.SocketEventType;
+import me.j360.disboot.websocket.dispatcher.EventDispatcher;
 import me.j360.disboot.websocket.manager.BizEventHandler;
 import me.j360.disboot.websocket.manager.SocketSessionManager;
+import me.j360.framework.boot.shiro.JwtSignature;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

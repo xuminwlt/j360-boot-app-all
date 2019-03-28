@@ -8,6 +8,7 @@ package me.j360.disboot.base.constant;
 public abstract class AppConfig {
 
     public static final String REDIS_PREFIX_FLODER = "j360:";
+    public static final String USER_SESSION = REDIS_PREFIX_FLODER + "u:sess:%s";
 
     //Auth 定义jwt内容
     public static final String JWT_AUD_GUEST = "guest";

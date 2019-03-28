@@ -1,10 +1,10 @@
 package me.j360.disboot.websocket.configuration;
 
-import cc.fotoplace.app2.game.websocket.constant.PubSubEventType;
 import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.protocol.Packet;
 import com.corundumstudio.socketio.protocol.PacketType;
 import lombok.extern.slf4j.Slf4j;
+import me.j360.disboot.websocket.constant.PubSubEventType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
