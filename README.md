@@ -10,7 +10,7 @@
  - disboot-biz-sjdbc: RPC模块(disboot-api)实现工程, 集成了Sharding-phere,RocketMQ等分布式框架及最佳实践用法
  - disboot-web: API端,使用Dubbo RPC连接biz模块
  - disboot-miniprogram: 小程序服务端快速上手指南,包含jwt授权鉴权, 微信小程序支付、小程序客服、小程序消息等内容
- - disboot-websocket: 应用中使用netty连接实现分布式集群中的点对点,点对多,广播消息收发,业务功能集成实践
+ - disboot-websocket: 应用中使用netty连接实现分布式集群中的点对点,点对多,广播消息收发,业务功能集成实践(Web Game/PUSH)
 
 ## 快速上手
  - 微信小程序服务端接口快速上手案例: <a href="./j360-disboot-miniprogram">j360-disboot-miniprogram</a>
