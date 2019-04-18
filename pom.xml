@@ -45,7 +45,7 @@
     <properties>
         <project.encoding>UTF-8</project.encoding>
         <j360.framework.version>1.3</j360.framework.version>
-        <dubbo.version>2.7.0</dubbo.version>
+        <dubbo.version>2.7.1</dubbo.version>
     </properties>
 
     <dependencyManagement>

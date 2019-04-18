@@ -67,6 +67,14 @@ dubbo:
     id: zk
     address: zookeeper://127.0.0.1:2181
     client: curator
+    simplified: true
+  metadata-report:
+    id: zk
+    address: zookeeper://127.0.0.1:2181  #redis://10.1.0.4:16379
+    prefix: app2
+# monitor:
+#    address: zookeeper://10.1.0.4:2181
+#    prefix: app2
 
 ## sharding-sphare config name: jdbcUrl not url,it not is a bug, but HikariDataSource need
 ## MASTER-SLAVE ONLY
