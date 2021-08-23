@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.j360.disboot</groupId>
@@ -50,7 +47,9 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--j360 framework-->
+            
+<!--j360 framework-->
+
             <dependency>
                 <groupId>me.j360.framework</groupId>
                 <artifactId>j360-core</artifactId>
@@ -424,7 +423,7 @@
                     <configuration>
                         <argLine>-Xdebug -Dspring.config.location=file:../.././yml/application-local.yml,file:../.././yml/application-sharding.yml,classpath:application.yml</argLine>
                     </configuration>
-                </plugin>
+                <configuration><parallel>all</parallel></configuration></plugin>
             </plugins>
         </pluginManagement>
         <plugins>
